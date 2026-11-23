@@ -1265,62 +1265,100 @@ section,
   }
 }
 
-/* ==============================
+
+
+/* =====================================
    ABOUT SECTION
-============================== */
+===================================== */
+
 .about {
   background-color: #090b09;
   color: #e5e8e1;
 }
 
+/* =====================================
+   ABOUT HEADING
+===================================== */
+
+
+.about .section-title {
+  text-align: center;
+  padding-bottom: 5px;
+  margin-bottom: 0;
+}
+
 .about .section-title h2 {
   color: #c6ff00;
-}
-
-.about .section-title p,
-.about .content p,
-.about .content li {
-  color: #d4d8d0;
-}
-
-.about .content h3 {
-  color: #ffffff;
+  font-size: 36px;
   font-weight: 700;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
-.about .content ul {
-  list-style: none;
-  padding: 0;
-  margin: 24px 0;
+.about .section-title p {
+  color: #e5e8e1;
+  font-size: 22px;
+  margin-bottom: 0;
 }
 
-.about .content ul li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 12px;
+
+.about .section-title + .container {
+  padding-top: 0;
 }
 
-.about .content ul i {
-  flex: 0 0 auto;
-  color: #c6ff00;
-  font-size: 20px;
-  line-height: 1.4;
+.about .about-image {
+  margin-top: 0;
 }
 
-/* Thin, offset accents behind the photo */
+.about .content {
+  margin-top: 0;
+}
+
+
+/* =====================================
+   ABOUT CONTENT LAYOUT
+===================================== */
+
+.about .about-container {
+  max-width: 1200px;
+  margin: 65px auto 0;
+}
+
+.about .about-container .row {
+  --bs-gutter-x: 6rem;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =====================================
+   ABOUT PROFILE PICTURE
+===================================== */
+
 .about .about-image {
   position: relative;
-  margin: 12px;
+  isolation: isolate;
+  max-width: 280px;
+  width: 100%;
+  margin: 0 auto;
 }
 
+/* Maintain original image proportions */
+.about .about-image img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Decorative green frames behind picture */
 .about .about-image::before,
 .about .about-image::after {
   content: "";
   position: absolute;
   border: 1px solid rgba(198, 255, 0, 0.5);
   pointer-events: none;
+  z-index: -1;
 }
 
 .about .about-image::before {
@@ -1331,51 +1369,135 @@ section,
   inset: 12px -12px -12px 12px;
 }
 
-/* Keep the photo above the decorative borders */
-#about .about-image {
-  position: relative;
-  isolation: isolate;
-}
-
-/* Move decorative frames behind the photo */
-#about .about-image::before,
-#about .about-image::after {
-  z-index: -1;
-}
-
-/* Keep the portrait in front */
-#about .about-image img {
-  position: relative;
-  z-index: 1;
-}
 
 /* =====================================
-   ABOUT ME - PROFILE PICTURE SIZE
+   ABOUT TEXT CONTENT
 ===================================== */
 
-#about .about-image {
-  max-width: 380px;
+.about .content {
+  max-width: 700px;
   width: 100%;
-  margin: 0 auto;
+  padding-left: 0;
+  margin-left: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-#about .about-image img {
+.about .content p {
+  color: #d4d8d0;
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.about .content ul {
   width: 100%;
-  height: 450px;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
 }
 
 /* Mobile */
-@media (max-width: 768px) {
-  #about .about-image {
-    max-width: 300px;
+@media (max-width: 991px) {
+  .about .content {
+    max-width: 100%;
+    margin-left: 0;
+    padding: 0 15px;
+  }
+}
+
+
+/* =====================================
+   ABOUT LIST
+===================================== */
+
+.about .content ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 20px;
+}
+
+.about .content ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  color: #d4d8d0;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Green checkmark icons */
+.about .content ul i {
+  flex: 0 0 auto;
+  color: #c6ff00;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 991px) {
+
+  .about .about-container {
+    margin-top: 45px;
   }
 
-  #about .about-image img {
-    height: 360px;
+  .about .about-container .row {
+    --bs-gutter-x: 2rem;
   }
+
+  .about .content {
+    max-width: 100%;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .about .about-image {
+    max-width: 260px;
+  }
+
+}
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 767px) {
+
+  .about .section-title h2 {
+    font-size: 32px;
+  }
+
+  .about .section-title p {
+    font-size: 18px;
+  }
+
+  .about .about-container {
+    margin-top: 35px;
+  }
+
+  .about .about-image {
+    max-width: 230px;
+  }
+
+  
+.about .content {
+  max-width: 520px;
+  margin-left: 45px;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+  .about .content p,
+  .about .content ul li {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
 }
 
 
